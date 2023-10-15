@@ -1,0 +1,131 @@
+address{
+  text-align: left;
+  text-shadow: 1px 1px #ebe9f5;
+}
+
+blockquote{
+  text-align: center;
+}
+
+h2
+{ 
+   font-size: 18px; 
+   font-style: italic;
+   text-indent: 25px;
+   text-decoration: underline;
+   text-decoration-style: wavy;
+   font-family: century gothic, monospace;
+   font-stretch: ultra-condensed;
+   text-decoration-color: rgb(25, 25, 112);
+   margin-top: 20px;
+}
+
+ul{
+  font-size:14px;
+}
+
+p
+{ 
+   font-size: 14px; 
+   text-align: justify;
+   padding-left: 10px;
+   padding-right: 10px;
+   text-indent: 15px;
+   font-style: 
+}
+
+
+ul.book{
+  list-style-image: url("book.png");
+  outline-color: rgb(0,0,128);
+  outline-offset: 10px;
+  outline-style: dotted;
+  outline-width: 5px;
+   padding-bottom: 10px;
+ }
+
+
+
+table {
+	color:rgb(25, 25, 112);
+	background:rgb(230, 230, 250);
+	border:3px solid rgb(0, 0, 0);
+	padding:0.5cm;
+	text-align:justify;
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+	}
+
+table.t1 {
+margin: 1em auto;
+border-collapse: collapse;
+font-family: Arial, Helvetica, sans-serif;
+border-radius: 0ex
+}
+.t1 th, .t1 td {
+padding: 4px 8px;
+}
+.t1 thead th {
+background: #D8BFD8;
+text-transform: lowercase;
+text-align: center;
+font-size: 15px;
+color: #fff;
+}
+.t1 tr {
+border-right: 1px solid #18202a;
+}
+.t1 tbody tr {
+border-bottom: 1px solid #18202a;
+}
+.t1 tbody tr:nth-child(odd) {
+background: #E6E6FA;
+}
+.t1 tbody tr:nth-child(even) {
+background:#F0F8FF;
+}
+.t1 tbody th, .t1 tbody tr:nth-child(even) td {
+border-right: 1px solid #18202a; 
+}
+.t1 tbody th, .t1 tbody tr:nth-child(odd) td {
+border-right: 1px solid #18202a; 
+}
+
+
+.block1{
+width:520px;
+height:200px;
+background:rgb(240, 248, 255);
+padding: 5px;
+margin-left:10px;
+border: solid 3px rgb(22, 7, 51);
+float:left;
+overflow:scroll;
+}
+.block2{
+width:520px;
+height:200px;
+background:rgb(240,248,255);
+padding: 5px;
+margin-right:10px;
+border: solid 3px rgb(22, 7, 51);
+float:right;
+overflow:scroll;
+}
+
+span.a{
+  color:rgb(70,130,180);
+}
+span.b{
+  color:rgb(0,0,0);
+}
+span.g{
+  color:rgb(50, 205, 50);
+}
+span.d{
+  color:rgb(0,0,225);
+}
+ 
+ 
