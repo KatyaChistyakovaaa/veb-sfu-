@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация в соц.сети</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="css for lab 3.css">
+
+</head>
+<body>
+    <form>
+       
+        <label for="surname">Фамилия:</label>
+        <input type="text" id="surname" name="surname" placeholder="Введите свою фамилию">
+
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" placeholder="Введите своё имя">
+
+        <label for="patronymic">Отчество:</label>
+        <input type="text" id="patronymic" name="patronymic" placeholder="Введите своё отчество">
+
+        <label for="email">Электронная почта:</label>
+        <input type="email" id="email" name="email" placeholder="Введите свою электронную почту">
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" placeholder="Введите пароль">
+
+        <label for="birthdate">Дата рождения:</label>
+        <input type="date" id="birthdate" name="Введите свою дату рождения">
+
+        <label for="gender">Пол:</label>
+        <select id="gender" name="gender">
+            <option value="male">Мужской</option>
+            <option value="female">Женский</option>
+            
+        </select>
+
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+</body>
+</html>
+
+    <script>
+
+       // Функция для обработки ошибок при вводе данных в форму
+function processForm() {
+  // Получение значений полей формы
+  var name = document.getElementById('name').value;
+  var surname = document.getElementById('surname').value;
+  var patronymic = document.getElementById('patronymic').value;
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  var birthdate = document.getElementById('birthdate').value;
+  var gender = document.querySelector('input[name="gender"]:checked');
+
+  // Проверка на заполнение обязательных полей формы
+  if (!name || !surname || !email || !password || !birthdate || !gender) {
+    alert('Пожалуйста, заполните все обязательные поля!');
+    return;
+  }
+
+  // Проверка на корректность значений, введенных в поля
+  if (!validateEmail(email)) {
+    alert('Пожалуйста, введите корректный адрес электронной почты!');
+    return;
+  }
+
+  // Вывод данных на экран
+  var result = 'Имя: ' + name + '\n' +
+               'Фамилия: ' + surname + '\n' +
+               'Отчество: ' + patronymic + '\n' +
+               'Электронная почта: ' + email + '\n' +
+               'Пароль: ' + password + '\n' +
+               'Дата рождения: ' + birthdate + '\n' +
+               'Пол: ' + gender.value;
+
+  alert(result);
+
+  // Очистка полей формы
+  document.getElementById('name').value = '';
+  document.getElementById('surname').value = '';
+  document.getElementById('patronymic').value = '';
+  document.getElementById('email').value = '';
+  document.getElementById('password').value = '';
+  document.getElementById('birthdate').value = '';
+  gender.checked = false;
+}
+
+// Функция для проверки корректности адреса электронной почты
+function validateEmail(email) {
+  var re = /\S+@\S+\.\S+/;
+  return re.test(email);
+}
+
+// Назначение обработчика события на кнопку отправки формы
+document.getElementById('submit-btn').addEventListener('click', processForm);
+
