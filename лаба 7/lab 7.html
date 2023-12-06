@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Калькулятор</title>
+</head>
+<body>
+    <input type="text" id="display" readonly>
+    <br>
+    <button onclick="insertNumber(7)">7</button>
+    <button onclick="insertNumber(8)">8</button>
+    <button onclick="insertNumber(9)">9</button>
+    <button onclick="insertOperator('+')">+</button>
+    <br>
+    <button onclick="insertNumber(4)">4</button>
+    <button onclick="insertNumber(5)">5</button>
+    <button onclick="insertNumber(6)">6</button>
+    <button onclick="insertOperator('-')">-</button>
+    <br>
+    <button onclick="insertNumber(1)">1</button>
+    <button onclick="insertNumber(2)">2</button>
+    <button onclick="insertNumber(3)">3</button>
+    <button onclick="insertOperator('*')">*</button>
+    <br>
+    <button onclick="insertNumber(0)">0</button>
+    <button onclick="insertDecimal()">.</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="insertOperator('/')">/</button>
+    <br>
+    <button onclick="clearDisplay()">C</button>
+    <button onclick="clearEntry()">CE</button>
+    <button onclick="backspace()">&larr;</button>
+    <button onclick="changeSign()">+/-</button>
+    <br>
+    <button onclick="calculatePercentage()">%</button>
+    <button onclick="calculateInverse()">1/x</button>
+    <button onclick="calculateSquareRoot()">√</button>
+</body>
+<script>
+    let display = document.getElementById('display');
+
+    // Функция для вставки числа на дисплей
+    function insertNumber(number) {
+        display.value += number;
+    }
+
+    // Функция для вставки оператора на дисплей
+    function insertOperator(operator) {
+        display.value += operator;
+    }
+
+    // Функция для вставки десятичной точки на дисплей
+    function insertDecimal() {
+        if (!display.value.includes('.')) {
+            display.value += '.';
+        }
+    }
+
+    // Функция для выполнения вычислений
+    function calculate() {
+        try {
+            display.value = eval(display.value);
+        } catch (error) {
+            display.value = 'Ошибка';
+        }
+    }
+
+    // Функция для очистки дисплея
+    function clearDisplay() {
+        display.value = '';
+    }
+
+    // Функция для очистки последнего введенного операнда
+    function clearEntry() {
+        let currentValue = display.value;
+        display.value = currentValue.slice(0, currentValue.lastIndexOf(' ') + 1);
+    }
+
+    // Функция для удаления последнего символа
+    function backspace() {
+        display.value = display.value.slice(0, -1);
+    }
+
+    // Функция для смены знака числа
+    function changeSign() {
+        if (display.value.startsWith('-')) {
+            display.value = display.value.substring(1);
+        } else {
+            display.value = '-' + display.value;
+        }
+    }
+
+    // Функция для вычисления процента от числа
+    function calculatePercentage() {
+        display.value = eval(display.value) / 100;
+    }
+
+    // Функция для вычисления обратного значения числа (1/x)
+    function calculateInverse() {
+        display.value = 1 / eval(display.value);
+    }
+
+    // Функция для вычисления квадратного корня числа
+    function calculateSquareRoot() {
+        display.value = Math.sqrt(eval(display.value));
+    }
+</script>
+</html>
