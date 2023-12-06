@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Календарь</title>
+  <style>
+    .weekend {
+      background-color: yellow;
+    }
+
+    .holiday {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="calendar"></div>
+  <script src="script.js"></script>
+</body>
+</html>
+<script>
+    function getMonthCalendar(month = (new Date()).getMonth(), year = (new Date()).getFullYear()) {
+    const calendar = document.getElementById("calendar");
+    
+    // Очистить календарь
+    calendar.innerHTML = "";
+  
+    // Получить дату первого дня месяца
+    const firstDay = new Date(year, month, 1);
+    // Получить последний день месяца
+    const lastDay = new Date(year, month + 1, 0).getDate();
+  
+    // Создать заголовок с названием месяца и года
+    const header = document.createElement("h2");
+    header.textContent = `${firstDay.toLocaleString('default', { month: 'long' })} ${year}`;
+    calendar.appendChild(header);
+  
+    // Создать таблицу для календаря
+    const table = document.createElement("table");
+    calendar.appendChild(table);
+  
+    // Создать заголовок с днями недели
+    const thead = document.createElement("thead");
+    table.appendChild(thead);
+  
+    const weekdays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+    const theadRow = document.createElement("tr");
+    thead.appendChild(theadRow);
+  
+    for (let i = 0; i < 7; i++) {
+      const weekday = document.createElement("th");
+      weekday.textContent = weekdays[i];
+      theadRow.appendChild(weekday);
+    }
+  
+    // Создать ячейки для дат
+    const tbody = document.createElement("tbody");
+    table.appendChild(tbody);
+  
+    let date = 1;
+    let day = firstDay.getDay();
+  
+    for (let i = 0; i < 6; i++) {
+      const row = document.createElement("tr");
+      tbody.appendChild(row);
+  
+      for (let j = 0; j < 7; j++) {
+        const cell = document.createElement("td");
+        row.appendChild(cell);
+  
+        if (i === 0 && j < day) {
+          // Пустая ячейка до первого дня месяца
+        } else if (date <= lastDay) {
+          cell.textContent = date;
+          
+          // Выделить выходные дни
+          if (j === 5 || j === 6) {
+            cell.classList.add("weekend");
+          }
+          
+          // Праздничные дни (в данном примере только 1 января)
+          if (month === 0 && date === 1) {
+            cell.classList.add("holiday");
+          }
+  
+          date++;
+        }
+      }
+    }
+  }
+  
+  // Вызов функции без аргументов, чтобы вывести текущий месяц
+  getMonthCalendar();
+  
+</script>

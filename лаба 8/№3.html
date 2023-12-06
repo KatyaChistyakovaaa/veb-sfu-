@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>форма</title>
+    <link rel="stylesheet" href="normalize.css">
+
+</head>
+<body>
+<form id="registrationForm" method="POST">
+    <label for="fullName">ФИО</label>
+    <input type="text" id="fullName" required>
+    
+    <label for="username">Логин</label>
+    <input type="text" id="username" required>
+    
+    <label for="password">Пароль</label>
+    <input type="password" id="password" required>
+    
+    <label for="birthday">Дата рождения</label>
+    <input type="date" id="birthday" required>
+    
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+</body>
+</html>
+
+<script>
+// Получаем элемент формы
+const form = document.querySelector('#registrationForm');
+
+// Обработчик события отправки формы
+form.addEventListener('submit', (event) => {
+  event.preventDefault(); // Отменяем стандартное поведение формы (перезагрузку страницы)
+  
+  // Получаем значения полей формы
+  const fullName = form.querySelector('#fullName').value;
+  const username = form.querySelector('#username').value;
+  const password = form.querySelector('#password').value;
+  const birthday = form.querySelector('#birthday').value;
+
+  // Создаем объект FormData для передачи данных формы на сервер
+  const formData = new FormData();
+  formData.append('fullName', fullName);
+  formData.append('username', username);
+  formData.append('password', password);
+  formData.append('birthday', birthday);
+
+  // Отправляем данные формы на сервер через AJAX-запрос
+  fetch('register.php', {
+    method: 'POST',
+    body: formData,
+  })
+  .then(response => response.text())
+  .then(data => {
+    console.log(data); // Выводим ответ сервера в консоль
+    // Здесь может быть дополнительный код для обработки ответа сервера
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+});
+
+</script>
+    
