@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация в соц.сети</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="css for lab 6.css">
+</head>
+<body>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <label for="surname">Фамилия:</label>
+        <input type="text" id="surname" name="surname" placeholder="Введите свою фамилию" required>
+
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" placeholder="Введите своё имя" required>
+
+        <label for="patronymic">Отчество:</label>
+        <input type="text" id="patronymic" name="patronymic" placeholder="Введите своё отчество" required>
+
+        <label for="email">Электронная почта:</label>
+        <input type="email" id="email" name="email" placeholder="Введите свою электронную почту" required>
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+
+        <label for="birthdate">Дата рождения:</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+
+        <label for="gender">Пол:</label>
+        <select id="gender" name="gender">
+            <option value="male">Мужской</option>
+            <option value="female">Женский</option>
+        </select>
+
+        <button type="submit">Зарегистрироваться</button>
+
+        <p class="additional-info"><i class="custom-i">Все поля обязательны для заполнения.</i></p>
+    </form>
+
+<script>
+    function validateForm() {
+        var form = document.getElementById("registrationForm");
+        var elements = form.elements;
+
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].hasAttribute("required") && elements[i].value.trim() === "") {
+                alert("Пожалуйста, заполните все обязательные поля.");
+                return false;
+            }
+        }
+
+        if (!validateEmail()) {
+            return false;
+        }
+
+        if (!validatePassword()) {
+            return false;
+        }
+
+        displayResult();
+        clearFields();
+
+        return false;
+    }
+
+    function validateEmail() {
+        var emailInput = document.getElementById("email");
+        var emailValue = emailInput.value.trim();
+
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(emailValue)) {
+            alert("Пожалуйста, введите корректный адрес электронной почты.");
+            return false;
+        }
+
+        return true;
+    }
+
+    function validatePassword() {
+        var passwordInput = document.getElementById("password");
+        var passwordValue = passwordInput.value.trim();
+
+        if (passwordValue.length < 8) {
+            alert("Пароль должен содержать минимум 8 символов.");
+            return false;
+        }
+
+        return true;
+    }
+
+    function displayResult() {
+        var resultDiv = document.createElement("div");
+        resultDiv.id = "resultDiv";
+        var resultText = document.createElement("p");
+        resultText.innerHTML = "<span class='custom-span'>Успешно:</span> Данные успешно отправлены.";
+
+        resultDiv.appendChild(resultText);
+        document.body.appendChild(resultDiv);
+    }
+
+    function clearFields() {
+        var form = document.getElementById("registrationForm");
+        form.reset();
+    }
+</script>
+
+</body>
+</html>

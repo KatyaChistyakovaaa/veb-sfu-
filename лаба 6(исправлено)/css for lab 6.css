@@ -1,0 +1,71 @@
+html {
+    background-image: url(https://gas-kvas.com/uploads/posts/2023-02/1675440792_gas-kvas-com-p-razmitii-fonovii-risunok-1.jpg);
+
+    }
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        margin-top: 50px;
+        }
+
+         
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    select {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+        label {
+            display: none;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px; 
+            box-sizing: border-box;
+        }
+        #summary {
+            display: none;
+            border: 2px solid #4CAF50;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #f0f8ff;
+    }
+
+    .additional-info {
+        text-align: center;
+        font-size: 14px;
+        color: #ff0000;
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+}
