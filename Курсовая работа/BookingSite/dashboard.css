@@ -1,0 +1,174 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('fotka_na_sayt_8.jpg');
+    background-size: cover; /* Заменено на contain */
+    background-position: center; /* Добавлено для центрирования изображения */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+}
+
+h2 {
+    color: #ffffff;
+
+}
+
+p {
+    color: #ffffff;
+}
+.userListItem{
+    max-width: 300px;
+    text-align: center;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: #fff;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: #ddd;
+}
+label{
+    color: white;
+}
+#userInfoModal p{
+    color: #333333;
+}
+#userInfoModal h2{
+    color: #333333;
+}
+#userInfoModal label{
+    color: #333333;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s 0s, opacity 0.5s linear;
+}
+a.logout-button {
+    display: inline-block;
+    background-color: #d9534f;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+a.logout-button:hover {
+    background-color: #c9302c;
+}
+#editUsernameForm,
+#editEmailForm,
+#editRoleForm {
+    margin-top: 20px;
+    display: none;
+}
+
+#editUsernameForm label,
+#editEmailForm label,
+#editRoleForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#editUsernameForm input,
+#editEmailForm input,
+#editRoleForm input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#editUsernameForm button,
+#editEmailForm button,
+#editRoleForm button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#editUsernameForm button:hover,
+#editEmailForm button:hover,
+#editRoleForm button:hover {
+    opacity: 0.8;
+}
